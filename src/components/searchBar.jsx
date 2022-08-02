@@ -24,6 +24,7 @@ const SearchBar = () => {
       });
     };
   }
+
   const apiCall = useCallback(
     debounce(async (searchParams) => {
       const url = `http://api.github.com/search/users?q=${searchParams.get(
@@ -48,6 +49,7 @@ const SearchBar = () => {
   const handleChange = useCallback(
     (e) => {
       setFlag(true);
+      setUserFlag(false);
       e.preventDefault();
       console.log(inputText);
 
@@ -59,18 +61,21 @@ const SearchBar = () => {
 
   const handleSubmit = useCallback(
     async (e) => {
-      console.log(e.target.value);
-      e.preventDefault();
+      // console.log(e.target.value);
+      // e.preventDefault();
 
-      const searchValue = e.target.value
-        ? e.target.value
-        : searchParams.get("q");
+      const searchValue =
+        e && e.target && e.target.value
+          ? e.target.value
+          : searchParams.get("q");
 
       try {
         let a = await axios.get(`http://api.github.com/users/${searchValue}`);
         console.log(a.data);
+        setInputText(a.data.login);
+        setSearchParams({ q: a.data.login });
         setUserData(a.data);
-         setUserList([]);
+        setUserList([]);
         console.log(e.target.value);
         setFlag(false);
         setUserFlag(true);
@@ -80,12 +85,6 @@ const SearchBar = () => {
     },
     [searchParams, userFlag, flag]
   );
-
-  useEffect(() => {
-    if (userData && userData.length > 0) {
-      console.log(userData);
-    }
-  }, [userData]);
 
   return (
     <>
