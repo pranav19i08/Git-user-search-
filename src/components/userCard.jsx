@@ -13,7 +13,7 @@ function UserCard({ ...props }) {
       <div className={styles.userCardUserAvatarWraper}>
         <img
           className={styles.userCardUserAvatar}
-          src={ data && data.avatar_url}
+          src={data && data.avatar_url}
           alt=""
         />
         <div className={styles.userCardUserInfo}>
@@ -41,24 +41,7 @@ function UserCard({ ...props }) {
           <p className={styles.userStatNumber}>{data.following}</p>
         </div>
       </div>
-      {/* <ul className={styles.userCardContact}>
-          <li>
-            <LocationOnIcon />
-            <p class="lock">{data.location || "not available"}</p>
-          </li>
-          <li>
-            <LanguageIcon />
-            <p class="lock">{data.blog || "not available"}</p>
-          </li>
-          <li>
-            <TwitterIcon />
-            <p class="lock">{data.twitter || "not available"}</p>
-          </li>
-          <li>
-            <BusinessIcon />
-            <p class="lock">{data.company || "not available"}</p>
-          </li>
-        </ul> */}
+
       <Grid className={styles.footer1}>
         <Grid container xs={12}>
           <Grid item container xs={12} md={6} lg={6}>
