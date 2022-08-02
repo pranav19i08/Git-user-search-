@@ -26,7 +26,7 @@ const SearchBar = () => {
   }
   const apiCall = useCallback(
     debounce(async (searchParams) => {
-      const url = `http://api.github.com/search/users?q=${searchParams.get(
+      const url = `https://api.github.com/search/users?q=${searchParams.get(
         "q"
       )}&per_page=10`;
 
@@ -67,7 +67,7 @@ const SearchBar = () => {
         : searchParams.get("q");
 
       try {
-        let a = await axios.get(`http://api.github.com/users/${searchValue}`);
+        let a = await axios.get(`https://api.github.com/users/${searchValue}`);
         console.log(a.data);
         setUserData(a.data);
          setUserList([]);
