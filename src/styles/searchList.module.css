@@ -1,0 +1,22 @@
+.box{
+    width:54.5vw;
+    height:200px;
+    background-color: #1f2a48;
+    margin-top: 8px;
+    margin-left: 18.9rem;
+    border-radius: 11px;
+}
+.box ul{
+    list-style-type: none;
+
+}
+.box ul li button{
+    color: rgba(245, 245, 245, 0.5);
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.box ul li button:hover {
+    color:rgba(245, 245, 245, 1);
+}

@@ -1,0 +1,11 @@
+head,
+body {
+  background-color: #141c2f;
+}
+
+.searchtray {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

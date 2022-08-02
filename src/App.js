@@ -1,11 +1,20 @@
-import SearchBar from "./components/searchBar";
+import React from "react";
+import Header from "./components/header";
+import { BrowserRouter as Router } from "react-router-dom";
 
-const App = () => {
+import Main from "./components/main";
+
+import "./App.css";
+
+function App() {
   return (
     <>
-      <SearchBar />
+      <Router>
+        <Header />
+        <Main />
+      </Router>
     </>
   );
-};
+}
 
 export default App;
