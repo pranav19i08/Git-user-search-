@@ -35,7 +35,7 @@ const SearchBar = () => {
       const user = await response.json();
 
       setUserList(user && user.items);
-      //  setUserFlag(false);
+      // setUserFlag(false);
     }, 1000),
     [userList, userFlag]
   );
