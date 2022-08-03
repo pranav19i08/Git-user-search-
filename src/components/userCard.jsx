@@ -8,6 +8,7 @@ import { Grid, Typography } from "@mui/material";
 
 function UserCard({ ...props }) {
   const { data } = props;
+  const date = new Date(data.created_at).toDateString().slice(3);
   return (
     <div className={styles.userCard}>
       <div className={styles.userCardUserAvatarWraper}>
@@ -18,19 +19,19 @@ function UserCard({ ...props }) {
         />
         <div className={styles.userCardUserInfo}>
           <h2 className={styles.userCardTitle}>{data.name}</h2>
-          <h3 className={styles.userInfoUsername}>{  data.login}</h3>
-          <p className={styles.userInfoJoinedDate}>{  data.created_at}</p>
+          <h3 className={styles.userInfoUsername}>{data.login}</h3>
+          <p className={styles.userInfoJoinedDate}>{date}</p>
         </div>
       </div>
 
       <div className={styles.userCardBio}>
-        <p>{ data.bio || "This profile has no bio"}</p>
+        <p>{data.bio || "This profile has no bio"}</p>
       </div>
 
       <div className={styles.userCardStats}>
         <div className={styles.userRepos}>
           <p className={styles.userStatTitle}>Repos</p>
-          <p className={styles.userStatNumber}>{ data.public_repos}</p>
+          <p className={styles.userStatNumber}>{data.public_repos}</p>
         </div>
         <div className={styles.userFollowers}>
           <p className={styles.userStatTitle}>Followers</p>
@@ -62,7 +63,7 @@ function UserCard({ ...props }) {
           <Grid item container xs={12} md={6} lg={6}>
             <TwitterIcon />
             <Typography sx={{ marginLeft: "4%" }}>
-              { data.location || "not available"}
+              {data.location || "not available"}
             </Typography>
           </Grid>{" "}
           <Grid item container xs={12} md={6} lg={6}>

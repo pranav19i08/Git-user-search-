@@ -24,7 +24,7 @@ const SearchBar = () => {
       });
     };
   }
-
+   
   const apiCall = useCallback(
     debounce(async (searchParams) => {
       const url = `https://api.github.com/search/users?q=${searchParams.get(
@@ -61,6 +61,7 @@ const SearchBar = () => {
 
   const handleSubmit = useCallback(
     async (e) => {
+
       // console.log(e.target.value);
       // e.preventDefault();
 
@@ -103,7 +104,7 @@ const SearchBar = () => {
             className={styles.userSearchButton}
             type="submit"
           >
-            Search
+           Search
           </button>
         </div>
       </form>
